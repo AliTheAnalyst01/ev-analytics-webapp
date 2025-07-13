@@ -1,0 +1,47 @@
+{
+  "name": "ev-analytics-webapp",
+  "version": "1.0.0",
+  "description": "🚗⚡ EV Analytics Intelligence Platform - Production-ready web application",
+  "keywords": ["electric-vehicles", "analytics", "machine-learning", "nextjs", "fastapi"],
+  "author": {
+    "name": "AliTheAnalyst",
+    "email": "faizanzaidy78@gmail.com",
+    "url": "https://github.com/AliTheAnalyst"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AliTheAnalyst/ev-analytics-webapp.git"
+  },
+  "homepage": "https://ev-analytics-webapp.vercel.app",
+  "bugs": {
+    "url": "https://github.com/AliTheAnalyst/ev-analytics-webapp/issues"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && uvicorn main:app --reload",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "npm run start:frontend",
+    "start:frontend": "cd frontend && npm start",
+    "test": "npm run test:frontend && npm run test:backend",
+    "test:frontend": "cd frontend && npm test",
+    "test:backend": "cd backend && python -m pytest",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && flake8 .",
+    "deploy": "./scripts/deploy.sh",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "setup": "npm install && cd frontend && npm install && cd ../backend && pip install -r requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
